@@ -6,6 +6,9 @@ import './App.css';
 function App() {
   const [showContent, setShowContent] = useState(false);
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [address, setAddress] = useState('');
 
   return (
     <>
@@ -17,10 +20,10 @@ function App() {
         <button className='h-[50px] cursor-pointer'>Customize</button>
       </div>
       <div>
-        {showContent && <PersonalDetails name={name} setName={setName} />}
+        {showContent && <PersonalDetails name={name} setName={setName} email={email} setEmail={setEmail} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} address={address} setAddress={setAddress} />}
       </div>
       <div className='main-cv'>
-        <CV name={name} />
+        <CV name={name} email={email} phoneNumber={phoneNumber} address={address} />
       </div>
     </div>
     </>

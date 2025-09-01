@@ -12,14 +12,14 @@ function App() {
 
   return (
     <>
-    <div className='flex gap-[12px]'>
+    <div className='flex gap-[24px]'>
       <div className='sidebar bg-amber-700 flex flex-col h-[120px] w-[100px] box-border p-[6px] text-white gap-[2px] rounded-md'>
         <button className='h-[50px] cursor-pointer' onClick={() => {
-          setShowContent(true);
+          setShowContent(!showContent);
         }}>Content</button>
         <button className='h-[50px] cursor-pointer'>Customize</button>
       </div>
-      <div>
+      <div className='min-w-[400px] min-h-[300px]'>
         {showContent && <PersonalDetails name={name} setName={setName} email={email} setEmail={setEmail} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} address={address} setAddress={setAddress} />}
       </div>
       <div className='main-cv'>

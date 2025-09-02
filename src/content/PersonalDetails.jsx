@@ -6,9 +6,15 @@ export function PersonalDetails({setName, setEmail, setPhoneNumber, setAddress})
 
     return (
         <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px]">
-            <div className="text-white font-bold text-lg/7 cursor-pointer" onClick={() => {
+            <div className="text-white font-bold text-lg/7 cursor-pointer flex justify-between" onClick={() => {
                 setOpen(!open)
-            }} >Personal Details</div>
+            }} >
+                <div>Personal Details</div>
+                <div>
+                    <img src="https://img.icons8.com/?size=100&id=85327&format=png&color=000000" alt="icon" className={`w-5 h-5 transform transition-transform duration-100 ${
+            open ? "rotate-180" : "rotate-0"}`} />
+                </div>
+            </div>
             {open && (
             <div>
                 <div>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { PersonalDetails } from './content/PersonalDetails';
 import { CV } from './cv/cv';
 import './App.css';
+import { Education } from './content/Education';
 
 function App() {
   const [showContent, setShowContent] = useState(false);
@@ -9,6 +10,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [address, setAddress] = useState('');
+  const [college, setCollege] = useState('');
 
   return (
     <>
@@ -21,6 +23,9 @@ function App() {
       </div>
       <div className='min-w-[400px] min-h-[300px]'>
         {showContent && <PersonalDetails name={name} setName={setName} email={email} setEmail={setEmail} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} address={address} setAddress={setAddress} />}
+      </div>
+      <div className='min-w-[400px] min-h-[300px]'>
+        {showContent && <Education college={college} setCollege={setCollege} />}
       </div>
       <div className='main-cv'>
         <CV name={name} email={email} phoneNumber={phoneNumber} address={address} />

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { PersonalDetails } from './content/PersonalDetails';
 import { CV } from './cv/cv';
-import './App.css';
 import { Education } from './content/Education';
+import './App.css';
 
 function App() {
   const [showContent, setShowContent] = useState(false);
@@ -11,6 +11,10 @@ function App() {
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [address, setAddress] = useState('');
   const [college, setCollege] = useState('');
+  const [degree, setDegree] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [location, setLocation] = useState('');
 
   return (
     <>
@@ -21,14 +25,16 @@ function App() {
         }}>Content</button>
         <button className='h-[50px] cursor-pointer'>Customize</button>
       </div>
-      <div className='min-w-[400px] min-h-[300px]'>
-        {showContent && <PersonalDetails name={name} setName={setName} email={email} setEmail={setEmail} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} address={address} setAddress={setAddress} />}
-      </div>
-      <div className='min-w-[400px] min-h-[300px]'>
-        {showContent && <Education college={college} setCollege={setCollege} />}
+      <div className='flex flex-col gap-[10px]'>
+        <div className='min-w-[400px] min-h-[300px]'>
+          {showContent && <PersonalDetails name={name} setName={setName} email={email} setEmail={setEmail} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} address={address} setAddress={setAddress} />}
+        </div>
+        <div className='min-w-[400px] min-h-[300px]'>
+          {showContent && <Education college={college} setCollege={setCollege} degree={degree} setDegree={setDegree} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} location={location} setLocation={setLocation} />}
+        </div>
       </div>
       <div className='main-cv'>
-        <CV name={name} email={email} phoneNumber={phoneNumber} address={address} />
+        <CV name={name} email={email} phoneNumber={phoneNumber} address={address} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} />
       </div>
     </div>
     </>

@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export function Education({college, setCollege}) {
+export function Education({setCollege, setDegree, setStartDate, setEndDate, setLocation}) {
 
     const [open, setOpen] = useState(true);
 
     return (
-        <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px]">
+        <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px] shadow-xl shadow-blue-250">
             <div className="text-white font-bold text-lg/7 cursor-pointer flex justify-between" onClick={() => {
                 setOpen(!open)
             }} >
@@ -26,23 +26,27 @@ export function Education({college, setCollege}) {
                 <div>
                     <div className="text-white">Degree</div>
                     <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
-                        setEmail(e.target.value);
+                        setDegree(e.target.value);
                     }} />
                 </div>
-                <div>
-                    <div className="text-white">Start Date</div>
-                    <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
-                        setPhoneNumber(e.target.value);
-                    }} />
-                    <div className="text-white">End Date</div>
-                    <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
-                        setPhoneNumber(e.target.value);
-                    }} />
+                <div className="flex gap-[6px]">
+                    <div className="flex flex-col">
+                        <div className="text-white">Start Date</div>
+                        <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
+                            setStartDate(e.target.value);
+                        }} />
+                    </div>
+                    <div className="flex flex-col">
+                        <div className="text-white">End Date</div>
+                        <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
+                            setEndDate(e.target.value);
+                        }} />
+                    </div>
                 </div>
                 <div>
                     <div className="text-white">Location</div>
                     <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
-                        setAddress(e.target.value);
+                        setLocation(e.target.value);
                     }} />
                 </div>
             </div>)}

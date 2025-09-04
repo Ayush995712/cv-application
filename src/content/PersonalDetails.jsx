@@ -5,7 +5,7 @@ export function PersonalDetails({setName, setEmail, setPhoneNumber, setAddress})
     const [open, setOpen] = useState(true);
 
     return (
-        <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px]">
+        <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px] shadow-xl shadow-blue-250">
             <div className="text-white font-bold text-lg/7 cursor-pointer flex justify-between" onClick={() => {
                 setOpen(!open)
             }} >

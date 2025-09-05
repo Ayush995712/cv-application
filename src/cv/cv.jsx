@@ -11,9 +11,9 @@ export function CV({name, email, phoneNumber, address, college, degree, startDat
             </div>
             <div className="pt-[16px] pr-[16px] pb-[24px] pl-[24px] flex flex-col gap-[12px]">
                 <div className="flex justify-center items-center text-lg font-bold bg-cyan-200">Education</div>
-                <div className="flex gap-[12px]">
+                <div className="flex flex-col gap-[12px]">
                     {educationDetails.map((element, index) => (
-                            <div key={index}>
+                            <div key={index} className="flex gap-[12px]">
                                 <div>
                                     <div>{element.startDate}-{element.endDate}</div>
                                     <div>{element.location}</div>

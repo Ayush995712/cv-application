@@ -16,6 +16,7 @@ function App() {
   const [endDate, setEndDate] = useState('');
   const [location, setLocation] = useState('');
   const [loadExample, setLoadExample] = useState(true);
+  const [educationDetails, setEducationDetails] = useState([]);
 
   return (
     <>
@@ -41,13 +42,13 @@ function App() {
           {showContent && <PersonalDetails name={name} setName={setName} email={email} setEmail={setEmail} phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} address={address} setAddress={setAddress} />}
         </div>}
         {loadExample ? <div>
-          {showContent && <Education college={college} setCollege={setCollege} degree={degree} setDegree={setDegree} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} location={location} setLocation={setLocation} />}
+          {showContent && <Education college={college} setCollege={setCollege} degree={degree} setDegree={setDegree} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} location={location} setLocation={setLocation} educationDetails={educationDetails} setEducationDetails={setEducationDetails} />}
         </div> : <div>
-          {showContent && <Education college={college} setCollege={setCollege} degree={degree} setDegree={setDegree} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} location={location} setLocation={setLocation} />}
+          {showContent && <Education college={college} setCollege={setCollege} degree={degree} setDegree={setDegree} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} location={location} setLocation={setLocation} educationDetails={educationDetails} setEducationDetails={setEducationDetails} />}
         </div>}
       </div>
       <div className='main-cv'>
-        {loadExample ? <CV name={"Jon Doe"} email={"jondoe12@gmail.com"} phoneNumber={"+91 7898234782"} address={"Durgapur, West Bengal"} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} /> : <CV name={name} email={email} phoneNumber={phoneNumber} address={address} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} />}
+        {loadExample ? <CV name={"Jon Doe"} email={"jondoe12@gmail.com"} phoneNumber={"+91 7898234782"} address={"Durgapur, West Bengal"} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} /> : <CV name={name} email={email} phoneNumber={phoneNumber} address={address} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} />}
       </div>
     </div>
     </>

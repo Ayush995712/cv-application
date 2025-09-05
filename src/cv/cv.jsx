@@ -2,7 +2,7 @@ export function CV({name, email, phoneNumber, address, college, degree, startDat
     return (
         <div className="shadow-xl">
             <div className="personal-details w-[800px] h-[200px] bg-cyan-900 text-white flex flex-col justify-center p-[20px] gap-[12px] box-border">
-                <div className="text-xl flex justify-center">{name}</div>
+                <div className="text-2xl font-bold flex justify-center">{name}</div>
                 <div className="flex justify-center gap-[12px]">
                     <div>{email}</div>
                     <div>{phoneNumber}</div>

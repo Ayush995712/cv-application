@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export function Education({setCollege, setDegree, setStartDate, setEndDate, setLocation}) {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     return (
         <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px] shadow-xl shadow-blue-250">
@@ -16,7 +16,7 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
                 </div>
             </div>
             {open && (
-            <div>
+            <div className="flex flex-col gap-[4px]">
                 <div>
                     <div className="text-white">College</div>
                     <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
@@ -48,6 +48,9 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
                     <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={(e) => {
                         setLocation(e.target.value);
                     }} />
+                </div>
+                <div className="flex justify-center items-center">
+                    <button className=" border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[8px]">Add Education &#43;</button>
                 </div>
             </div>)}
         </div>

@@ -51,20 +51,17 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
             </div>
             <div className="flex flex-col gap-[4px]">
             {addEducation && (
-                (
-                    <div>
+                <div>
                     <div>
                         <div className="text-white">College</div>
                         <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value={college} onChange={(e) => {
                             setCollege(e.target.value);
-                            college = e.target.value;
                         }} />
                     </div>
                     <div>
                         <div className="text-white">Degree</div>
                         <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value={degree} onChange={(e) => {
                             setDegree(e.target.value);
-                            degree = e.target.value;
                         }} />
                     </div>
                     <div className="flex gap-[6px]">
@@ -72,14 +69,12 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
                             <div className="text-white">Start Date</div>
                             <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value={startDate} onChange={(e) => {
                                 setStartDate(e.target.value);
-                                startDate = e.target.value;
                             }} />
                         </div>
                         <div className="flex flex-col">
                             <div className="text-white">End Date</div>
                             <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value={endDate} onChange={(e) => {
                                 setEndDate(e.target.value);
-                                endDate = e.target.value;
                             }} />
                         </div>
                     </div>
@@ -87,17 +82,35 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
                         <div className="text-white">Location</div>
                         <input type="text" className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value={location} onChange={(e) => {
                             setLocation(e.target.value);
-                            location = e.target.value;
                         }} />
                     </div>
                     <div className="flex justify-between">
                         <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]" onClick={saveEducation} >Save</button>
                         <div>
-                            <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]">Cancel</button>
-                            <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]">Delete</button>
+                            <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]" onClick={() => {
+                                setSelectedEducation(null);
+                                setCollege('');
+                                setDegree('');
+                                setStartDate('');
+                                setEndDate('');
+                                setLocation('');
+                                setAddEducation(false);
+                                setOpen(true);
+                            }} >Cancel</button>
+                            <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]" onClick={() => {
+                                setEducationDetails(prev => prev.filter(e => e.college !== selectedEducation.college));
+                                setSelectedEducation(null);
+                                setCollege('');
+                                setDegree('');
+                                setStartDate('');
+                                setEndDate('');
+                                setLocation('');
+                                setAddEducation(false);
+                                setOpen(true);
+                            }} >Delete</button>
                         </div>
                     </div>
-                </div>)
+                </div>
                 )}
                 {open && <div className="flex justify-center items-center">
                     <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[8px]" onClick={() => {

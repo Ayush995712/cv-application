@@ -89,22 +89,12 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
                         <div>
                             <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]" onClick={() => {
                                 setSelectedEducation(null);
-                                setCollege('');
-                                setDegree('');
-                                setStartDate('');
-                                setEndDate('');
-                                setLocation('');
                                 setAddEducation(false);
                                 setOpen(true);
                             }} >Cancel</button>
                             <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[4px]" onClick={() => {
                                 setEducationDetails(prev => prev.filter(e => e.college !== selectedEducation.college));
                                 setSelectedEducation(null);
-                                setCollege('');
-                                setDegree('');
-                                setStartDate('');
-                                setEndDate('');
-                                setLocation('');
                                 setAddEducation(false);
                                 setOpen(true);
                             }} >Delete</button>
@@ -114,6 +104,12 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
                 )}
                 {open && <div className="flex justify-center items-center">
                     <button className="border border-gray-300 text-cyan-100 rounded-3xl px-3 py-2 focus:outline-none cursor-pointer mt-[8px]" onClick={() => {
+                        setCollege("");
+                        setDegree("");
+                        setStartDate("");
+                        setEndDate("");
+                        setLocation("");
+                        setSelectedEducation(null);
                         setAddEducation(true);
                         setOpen(false)
                     }} >Add Education &#43;</button>

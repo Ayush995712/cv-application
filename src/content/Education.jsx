@@ -26,12 +26,12 @@ export function Education({setCollege, setDegree, setStartDate, setEndDate, setL
         <div className="w-[400px] h-auto bg-blue-400 rounded-lg p-[12px] shadow-xl shadow-blue-250">
             <div className="flex flex-col">
                 <div className="text-white font-bold text-lg/7 cursor-pointer flex justify-between" onClick={() => {
-                    setOpen(!open)
+                    setOpen(!open);
+                    setAddEducation(false);
                 }} >
                     <div>Education</div>
                     <div>
-                        <img src="https://img.icons8.com/?size=100&id=85327&format=png&color=000000" alt="icon" className={`w-5 h-5 transform transition-transform duration-100 ${
-                open ? "rotate-180" : "rotate-0"}`} />
+                        <img src="https://img.icons8.com/?size=100&id=85327&format=png&color=000000" alt="icon" className={`w-5 h-5 transform transition-transform duration-100 ${open ? "rotate-180" : "rotate-0"}`} />
                     </div>
                 </div>
                 <div className="flex flex-col rounded-lg gap-[4px]">

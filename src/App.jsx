@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { PersonalDetails } from './content/PersonalDetails';
 import { CV } from './cv/cv';
 import { Education } from './content/Education';
+import { Experience } from './content/Experience';
 import './App.css';
 
 function App() {
@@ -15,6 +16,12 @@ function App() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [location, setLocation] = useState('');
+  const [company, setCompany] = useState('');
+  const [positionTitle, setPositionTitle] = useState('');
+  const [startDateInCompany, setStartDateInCompany] = useState('');
+  const [endDateInCompany, setEndDateInCompany] = useState('');
+  const [locationOfWork, setLocationOfWork] = useState('');
+  const [description, setDescription] = useState('');
   const [loadExample, setLoadExample] = useState(true);
   const [educationDetails, setEducationDetails] = useState([]);
 
@@ -46,6 +53,7 @@ function App() {
         </div> : <div>
           {showContent && <Education college={college} setCollege={setCollege} degree={degree} setDegree={setDegree} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} location={location} setLocation={setLocation} educationDetails={educationDetails} setEducationDetails={setEducationDetails} />}
         </div>}
+        {showContent && <Experience company={company} setCompany={setCompany} positionTitle={positionTitle} setPositionTitle={setPositionTitle} startDateInCompany={startDateInCompany} endDateInCompany={endDateInCompany} locationOfWork={locationOfWork} setLocationOfWork={setLocationOfWork} description={description} setDescription={setDescription} />}
       </div>
       <div className='main-cv'>
         {loadExample ? <CV name={"Jon Doe"} email={"jondoe12@gmail.com"} phoneNumber={"+91 7898234782"} address={"Durgapur, West Bengal"} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} /> : <CV name={name} email={email} phoneNumber={phoneNumber} address={address} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} />}

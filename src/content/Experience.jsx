@@ -3,12 +3,34 @@ import { useState } from "react"
 export function Experience({company, setCompany, positionTitle, setPositionTitle, startDateInCompany, setStartDateInCompany, endDateInCompany, setEndDateInCompany, locationOfWork, setLocationOfWork, description, setDescription, experience, setExperience}) {
     const [open, setOpen] = useState(false);
     const [addExperienceBtn, setAddExperienceBtn] = useState(false);
+    const [selectedExperience, setSelectedExperience] = useState(null);
 
     function saveExperience() {
-        setExperience(prev => [...prev, {
-            company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description
-        }]);
-        console.log(experience);
+        if(selectedExperience) {
+            setExperience(prev => 
+                prev.map(e => 
+                    e.company === selectedExperience.company ? {company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description} : e));
+                    setSelectedExperience(null);
+        } else {
+            setExperience(prev => [...prev, {
+                company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description
+            }]);
+        }
+        setAddExperienceBtn(false);
+        setOpen(true);
+    }
+
+    function cancelExperience() {
+        setAddExperienceBtn(false);
+        setOpen(true);
+    }
+
+    function deleteExperience() {
+        if(selectedExperience) {
+            setExperience(prev => 
+                prev.filter(e => e.company !== selectedExperience.company)
+            )
+        }
         setAddExperienceBtn(false);
         setOpen(true);
     }
@@ -27,7 +49,17 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                 </div>
                 <div className="flex flex-col gap-[6px]">
                     {open && experience.map((e, index) => (
-                        <div key={index}>{e.company}</div>
+                        <div key={index} className="w-full border border-cyan-200 rounded-lg text-xl font-semibold bg-[beige] cursor-pointer" onClick={() =>  {
+                            setAddExperienceBtn(true);
+                            setOpen(false);
+                            setSelectedExperience(e);
+                            setCompany(company);
+                            setPositionTitle(positionTitle);
+                            setStartDateInCompany(startDateInCompany);
+                            setEndDateInCompany(endDateInCompany);
+                            setLocationOfWork(locationOfWork);
+                            setDescription(description);
+                        }}>{e.company}</div>
                         ))}
                 </div>
             </div>
@@ -74,9 +106,9 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                     <div>
                         <button className="border border-gray-300 px-[8px] py-[6px] rounded-2xl cursor-pointer" onClick={saveExperience}>Save</button>
                     </div>
-                    <div>
-                        <div>Cancel</div>
-                        <div>Delete</div>
+                    <div className="flex gap-[6px]">
+                        <button className="border border-gray-300 px-[8px] py-[6px] rounded-2xl cursor-pointer" onClick={cancelExperience}>Cancel</button>
+                        <button className="border border-gray-300 px-[8px] py-[6px] rounded-2xl cursor-pointer" onClick={deleteExperience}>Delete</button>
                     </div>
                 </div>
             </div>}
@@ -84,6 +116,7 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                 <button className="border border-gray-300 rounded-3xl px-[12px] py-[8px] cursor-pointer text-cyan-100" onClick={() => {
                     setAddExperienceBtn(true);
                     setOpen(false);
+                    setCompany('');
                     }}>Add Experience &#43;</button>
             </div>}
         </div>

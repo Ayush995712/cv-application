@@ -23,6 +23,7 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
     function cancelExperience() {
         setAddExperienceBtn(false);
         setOpen(true);
+        setSelectedExperience(null);
     }
 
     function deleteExperience() {
@@ -53,12 +54,12 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                             setAddExperienceBtn(true);
                             setOpen(false);
                             setSelectedExperience(e);
-                            setCompany(company);
-                            setPositionTitle(positionTitle);
-                            setStartDateInCompany(startDateInCompany);
-                            setEndDateInCompany(endDateInCompany);
-                            setLocationOfWork(locationOfWork);
-                            setDescription(description);
+                            setCompany(e.company);
+                            setPositionTitle(e.positionTitle);
+                            setStartDateInCompany(e.startDateInCompany);
+                            setEndDateInCompany(e.endDateInCompany);
+                            setLocationOfWork(e.locationOfWork);
+                            setDescription(e.description);
                         }}>{e.company}</div>
                         ))}
                 </div>
@@ -114,9 +115,14 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
             </div>}
             {open && <div className="flex justify-center items-center">
                 <button className="border border-gray-300 rounded-3xl px-[12px] py-[8px] cursor-pointer text-cyan-100" onClick={() => {
+                    setCompany('');
+                    setPositionTitle('');
+                    setStartDateInCompany('');
+                    setEndDateInCompany('');
+                    setLocationOfWork('');
+                    setDescription('');
                     setAddExperienceBtn(true);
                     setOpen(false);
-                    setCompany('');
                     }}>Add Experience &#43;</button>
             </div>}
         </div>

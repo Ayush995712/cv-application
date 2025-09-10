@@ -57,7 +57,7 @@ function App() {
         {showContent && <Experience company={company} setCompany={setCompany} positionTitle={positionTitle} setPositionTitle={setPositionTitle} startDateInCompany={startDateInCompany} setStartDateInCompany={setStartDateInCompany} endDateInCompany={endDateInCompany} setEndDateInCompany={setEndDateInCompany} locationOfWork={locationOfWork} setLocationOfWork={setLocationOfWork} description={description} setDescription={setDescription} experience={experience} setExperience={setExperience} />}
       </div>
       <div className='main-cv'>
-        {loadExample ? <CV name={"Jon Doe"} email={"jondoe12@gmail.com"} phoneNumber={"+91 7898234782"} address={"Durgapur, West Bengal"} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} /> : <CV name={name} email={email} phoneNumber={phoneNumber} address={address} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} />}
+        {loadExample ? <CV name={"Jon Doe"} email={"jondoe12@gmail.com"} phoneNumber={"+91 7898234782"} address={"Durgapur, West Bengal"} college={college} degree={degree} startDate={startDate} endDate={endDate} location={location} educationDetails={educationDetails} setEducationDetails={setEducationDetails} /> : <CV name={name} email={email} phoneNumber={phoneNumber} address={address} educationDetails={educationDetails} experience={experience} />}
       </div>
     </div>
     </>

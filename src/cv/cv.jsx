@@ -1,4 +1,4 @@
-export function CV({name, email, phoneNumber, address, college, degree, startDate, endDate, location, educationDetails, setEducationDetails}) {
+export function CV({name, email, phoneNumber, address, educationDetails = [], experience = []}) {
     return (
         <div className="shadow-xl">
             <div className="personal-details w-[800px] h-[200px] bg-cyan-900 text-white flex flex-col justify-center p-[20px] gap-[12px] box-border">
@@ -21,6 +21,21 @@ export function CV({name, email, phoneNumber, address, college, degree, startDat
                                 <div>
                                     <div>{element.college}</div>
                                     <div>{element.degree}</div>
+                                </div>
+                            </div>))}
+                </div>
+                <div className="flex justify-center items-center text-lg font-bold bg-cyan-200">Experience</div>
+                <div className="flex flex-col gap-[12px]">
+                    {experience.map((element, index) => (
+                            <div key={index} className="flex gap-[12px]">
+                                <div>
+                                    <div>{element.startDateInCompany}-{element.endDateInCompany}</div>
+                                    <div>{element.locationOfWork}</div>
+                                </div>
+                                <div>
+                                    <div>{element.company}</div>
+                                    <div>{element.positionTitle}</div>
+                                    <div>{element.description}</div>
                                 </div>
                             </div>))}
                 </div>

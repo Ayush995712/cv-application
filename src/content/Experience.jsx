@@ -16,7 +16,6 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                 {company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description}
             ]);
         }
-        console.log(experience);
         setAddExperienceBtn(false);
         setOpen(true);
     }

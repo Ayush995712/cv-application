@@ -12,10 +12,11 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                     e.company === selectedExperience.company ? {company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description} : e));
                     setSelectedExperience(null);
         } else {
-            setExperience(prev => [...prev, {
-                company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description
-            }]);
+            setExperience(prev => [...prev, 
+                {company, positionTitle, startDateInCompany, endDateInCompany, locationOfWork, description}
+            ]);
         }
+        console.log(experience);
         setAddExperienceBtn(false);
         setOpen(true);
     }
@@ -32,6 +33,7 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                 prev.filter(e => e.company !== selectedExperience.company)
             )
         }
+        setSelectedExperience(null);
         setAddExperienceBtn(false);
         setOpen(true);
     }
@@ -123,7 +125,7 @@ export function Experience({company, setCompany, positionTitle, setPositionTitle
                     setDescription('');
                     setAddExperienceBtn(true);
                     setOpen(false);
-                    }}>Add Experience &#43;</button>
+                }}>Add Experience &#43;</button>
             </div>}
         </div>
     )
